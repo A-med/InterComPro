@@ -1,4 +1,4 @@
-package com.example.iit.interphone;
+package com.example.iit.intercom;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

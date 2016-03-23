@@ -1,4 +1,4 @@
-package com.example.iit.interphone;
+package com.example.iit.intercom;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
