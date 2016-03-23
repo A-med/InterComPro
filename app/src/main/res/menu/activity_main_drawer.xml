@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="VisioPhone">
+            <menu>
+                <item
+                    android:id="@+id/turnOnCamera_Clicked"
+                    android:icon="@drawable/ic_videocam_24dp"
+                    android:title="Turn On camera" />
+                <item
+                    android:id="@+id/turnOffCamera_Clicked"
+                    android:icon="@drawable/ic_videocam_off_24dp"
+
+                    android:title="Turn Off micro" />
+                <item
+                    android:id="@+id/turnOffmicro_Clicked"
+                    android:icon="@drawable/sound_off"
+
+                    android:title="Turn On micro" />
+                <item
+                    android:id="@+id/turnOnmicro_Clicked"
+                    android:icon="@drawable/sound"
+
+                    android:title="Turn Off camera" />
+            </menu>
+
+        </item>
+
+
+        <item android:title="Door">
+            <menu>
+                <item
+                    android:id="@+id/open_door_Clicked"
+                    android:icon="@drawable/exit"
+
+                    android:title="Open"
+
+                    />
+                <item
+                    android:id="@+id/close_door_Clicked"
+                    android:icon="@drawable/door_open"
+
+                    android:title="Close"
+
+                    />
+                <item
+                    android:id="@+id/door_status_Clicked"
+                    android:icon="@drawable/status"
+
+                    android:title="Status"
+
+                    />
+            </menu>
+        </item>
+
+
+        <item android:title="History">
+            <menu>
+
+                <item
+                    android:id="@+id/video_hisotory"
+                    android:icon="@drawable/technology"
+                    android:title="Video History" />
+                <item
+                    android:id="@+id/door_hisotory"
+                    android:icon="@drawable/signs"
+                    android:title="Door History" />
+            </menu>
+        </item>
+
+
+    </group>
+
+
+</menu>
