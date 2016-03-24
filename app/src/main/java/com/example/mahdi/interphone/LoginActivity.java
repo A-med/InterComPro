@@ -56,6 +56,35 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    public void onLoginSuccess(String login, String pwd) throws com.parse.ParseException {
+        //ParseUser pu = logIn("system","system");
+        _loginButton.setEnabled(true);
+        ParseUser.logInInBackground(login, pwd, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, com.parse.ParseException e) {
+
+
+
+                if (e == null && user != null) {
+                    Log.v("****",user.getString("username"));
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                   // intent.putExtra(INFI_KEY, user.getUsername());
+                    startActivity(intent);
+                }else if(user == null)
+                {
+                    Toast.makeText(LoginActivity.this,"Referance or Password invalide", Toast.LENGTH_LONG).show();
+                }
+
+
+
+
+            }
+
+        });
+
+
+    }
+
     public void login() {
         Log.d(TAG, "Login");
 
@@ -72,16 +101,21 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Execute...");
         progressDialog.show();
 
-        String ref = _refText.getText().toString();
-        String pass = _passText.getText().toString();
+
 
         // TODO: Implement your own authentication logic here.
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
+                        String ref = _refText.getText().toString();
+                        String pass = _passText.getText().toString();
                         // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
+                        try {
+                            onLoginSuccess(ref,pass);
+                        } catch (com.parse.ParseException e) {
+                            e.printStackTrace();
+                        }
                         // onLoginFailed();
                         progressDialog.dismiss();
                     }
@@ -93,11 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    public void onLoginSuccess() {
-        _loginButton.setEnabled(true);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Invalide Authentification", Toast.LENGTH_LONG).show();
