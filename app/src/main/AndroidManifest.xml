@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.iit.intercom">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.example.iit.intercom.StarterApplication"
+        android:name=".StarterApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_green"
         android:label="@string/app_name"
@@ -19,26 +20,20 @@
             android:value="1pbyJjobwoz1q15InykYUOvkwDAOzfwUIqRCgxW6" />
 
         <activity
-            android:name="com.example.iit.intercom.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name">
 
         </activity>
-
-
-
-
-
-        <activity
-            android:name="com.example.iit.intercom.LoginActivity"
-            android:label="@string/app_name"
-            >
+        <activity android:name=".TestOuverture">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
 
         </activity>
     </application>

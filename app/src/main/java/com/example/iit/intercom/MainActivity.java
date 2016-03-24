@@ -1,5 +1,6 @@
 package com.example.iit.intercom;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -79,7 +80,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.turnOnCamera_Clicked) {
+        if (id == R.id.action_settings) {
+            ParseUser.logOutInBackground();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            // intent.putExtra(INFI_KEY, user.getUsername());
+
+            startActivity(intent);
+            finish();
 
 
         }
@@ -144,28 +151,15 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void login(String login, String pwd) throws com.parse.ParseException {
-        //ParseUser pu = logIn("system","system");
-        ParseUser.logInInBackground("system", "system", new LogInCallback() {
-            @Override
-            public void done(ParseUser user, com.parse.ParseException e) {
-                // text2.setText(user.getUsername());
-                Log.v("-------------------",user.getUsername());
-                //test pares get info from cloud
-            }
-        });
 
 
-    }
+
+
 
     private void eventCameraOnClicked() {
         Toast.makeText(MainActivity.this, "Camera on Clicked", Toast.LENGTH_SHORT).show();
 
-        try {
-            login("ali","dmk");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
