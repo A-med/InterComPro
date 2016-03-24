@@ -22,8 +22,6 @@ import com.parse.ParseUser;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
-// test branch dev 
     StarterApplication starterApplication;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
