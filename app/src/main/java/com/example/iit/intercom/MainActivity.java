@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity
             public void done(ParseUser user, com.parse.ParseException e) {
                 // text2.setText(user.getUsername());
                 Log.v("-------------------",user.getUsername());
+                //test pares get info from cloud
             }
         });
 
