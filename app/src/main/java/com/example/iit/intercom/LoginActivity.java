@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
+import com.parse.ParseUser;
+
 import butterknife.ButterKnife;
 import butterknife.Bind;
 
@@ -22,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.input_ref) EditText _refText;
     @Bind(R.id.input_pass) EditText _passText;
     @Bind(R.id.btn_login) Button _loginButton;
+    ProgressDialog progressDialog ;
 
     
     @Override
@@ -49,18 +53,16 @@ public class LoginActivity extends AppCompatActivity {
             public void done(ParseUser user, com.parse.ParseException e) {
 
 
-
                 if (e == null && user != null) {
-                    Log.v("****",user.getString("username"));
+                    Log.v("****", user.getString("username"));
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                   // intent.putExtra(INFI_KEY, user.getUsername());
+                    // intent.putExtra(INFI_KEY, user.getUsername());
+                    progressDialog.dismiss();
                     startActivity(intent);
-                }else if(user == null)
-                {
-                    Toast.makeText(LoginActivity.this,"Referance or Password invalide", Toast.LENGTH_LONG).show();
+                    finish();
+                } else if (user == null) {
+                    Toast.makeText(LoginActivity.this, "Referance or Password invalide", Toast.LENGTH_LONG).show();
                 }
-
-
 
 
             }
@@ -80,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
         _loginButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setIndeterminate(true);
 
         progressDialog.setMessage("Execute...");
@@ -90,9 +92,9 @@ public class LoginActivity extends AppCompatActivity {
 
         // TODO: Implement your own authentication logic here.
 
-        new android.os.Handler().postDelayed(
+      /*  new android.os.Handler().postDelayed(
                 new Runnable() {
-                    public void run() {
+                    public void run() {*/
                         String ref = _refText.getText().toString();
                         String pass = _passText.getText().toString();
                         // On complete call either onLoginSuccess or onLoginFailed
@@ -102,10 +104,10 @@ public class LoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         // onLoginFailed();
-                        progressDialog.dismiss();
+
                     }
-                }, 2000);
-    }
+
+
 
 
 
