@@ -1,4 +1,4 @@
-package com.example.mahdi.interphone;
+package com.example.iit.intercom;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -9,25 +9,10 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.Bind;
-
-
-
-import com.parse.GetCallback;
-import com.parse.LogInCallback;
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.ParseAnalytics;
-import com.parse.ParseQuery;
-import com.parse.ParseUser;
-import com.parse.SignUpCallback;
-
-import java.text.ParseException;
-
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -119,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                         // onLoginFailed();
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 2000);
     }
 
 

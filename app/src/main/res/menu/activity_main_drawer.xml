@@ -13,17 +13,17 @@
                     android:id="@+id/turnOffCamera_Clicked"
                     android:icon="@drawable/ic_videocam_off_24dp"
 
-                    android:title="Turn Off micro" />
+                    android:title="Turn Off camera" />
                 <item
                     android:id="@+id/turnOffmicro_Clicked"
                     android:icon="@drawable/sound_off"
 
-                    android:title="Turn On micro" />
+                    android:title="Turn Off micro" />
                 <item
                     android:id="@+id/turnOnmicro_Clicked"
                     android:icon="@drawable/sound"
 
-                    android:title="Turn Off camera" />
+                    android:title="Turn On micro" />
             </menu>
 
         </item>

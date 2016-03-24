@@ -1,4 +1,4 @@
-package com.example.mahdi.interphone;
+package com.example.iit.intercom;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -147,6 +147,19 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+<<<<<<< HEAD:app/src/main/java/com/example/mahdi/interphone/MainActivity.java
+=======
+    public void login(String login, String pwd) throws com.parse.ParseException {
+        //ParseUser pu = logIn("system","system");
+        ParseUser.logInInBackground("system", "system", new LogInCallback() {
+            @Override
+            public void done(ParseUser user, com.parse.ParseException e) {
+                // text2.setText(user.getUsername());
+                Log.v("-------------------",user.getUsername());
+                //test pares get info from cloud
+            }
+        });
+>>>>>>> 1cfb4d420d2c4d527537049851c5184757ebce4f:app/src/main/java/com/example/iit/intercom/MainActivity.java~
 
 
     private void eventCameraOnClicked() {
