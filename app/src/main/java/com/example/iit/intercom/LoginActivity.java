@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
+import com.parse.ParseUser;
+
 import butterknife.ButterKnife;
 import butterknife.Bind;
 
@@ -27,8 +30,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+
+            setContentView(R.layout.activity_login);
+            ButterKnife.bind(this);
         
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
@@ -41,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
     public void onLoginSuccess(String login, String pwd) throws com.parse.ParseException {
         //ParseUser pu = logIn("system","system");
         _loginButton.setEnabled(true);
@@ -49,18 +54,14 @@ public class LoginActivity extends AppCompatActivity {
             public void done(ParseUser user, com.parse.ParseException e) {
 
 
-
                 if (e == null && user != null) {
-                    Log.v("****",user.getString("username"));
+                  //  Log.v("****", user.getString("username"));
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                   // intent.putExtra(INFI_KEY, user.getUsername());
+                    // intent.putExtra(INFI_KEY, user.getUsername());
                     startActivity(intent);
-                }else if(user == null)
-                {
-                    Toast.makeText(LoginActivity.this,"Referance or Password invalide", Toast.LENGTH_LONG).show();
+                } else if (user == null) {
+                    Toast.makeText(LoginActivity.this, "Referance or Password invalide", Toast.LENGTH_LONG).show();
                 }
-
-
 
 
             }
