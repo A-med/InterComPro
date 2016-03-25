@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void onLoginSuccess(String login, String pwd) throws com.parse.ParseException {
-        //ParseUser pu = logIn("system","system");
+
         _loginButton.setEnabled(true);
         ParseUser.logInInBackground(login, pwd, new LogInCallback() {
             @Override
@@ -56,19 +56,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 if (e == null && user != null) {
-<<<<<<< HEAD
-                  //  Log.v("****", user.getString("username"));
+
+
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    // intent.putExtra(INFI_KEY, user.getUsername());
-                    startActivity(intent);
-=======
-                    Log.v("****", user.getString("username"));
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    // intent.putExtra(INFI_KEY, user.getUsername());
+
                     progressDialog.dismiss();
                     startActivity(intent);
                     finish();
->>>>>>> 5f5f547cfd11d613d246269ab18df19e9434ae14
+
                 } else if (user == null) {
                     Toast.makeText(LoginActivity.this, "Referance or Password invalide", Toast.LENGTH_LONG).show();
                 }

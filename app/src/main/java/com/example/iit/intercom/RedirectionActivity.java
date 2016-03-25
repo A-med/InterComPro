@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.parse.ParseUser;
 
-public class TestOuverture extends AppCompatActivity {
+public class RedirectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -16,8 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.parse.LogInCallback;
-import com.parse.ParseException;
 import com.parse.ParseUser;
 //just a branch test for GitHub
 public class MainActivity extends AppCompatActivity
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-       // starterApplication = (StarterApplication)getApplicationContext();
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -80,10 +78,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.logout_btn) {
             ParseUser.logOutInBackground();
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            // intent.putExtra(INFI_KEY, user.getUsername());
+
 
             startActivity(intent);
             finish();

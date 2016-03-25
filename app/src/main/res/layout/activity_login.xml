@@ -7,7 +7,6 @@
 
     android:background="@drawable/side_nav_bar">
 
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
