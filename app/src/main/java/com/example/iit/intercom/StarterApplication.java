@@ -16,29 +16,27 @@ import com.parse.ParseACL;
 
 public class StarterApplication extends Application {
 
-  @Override
-  public void onCreate() {
+    @Override
+    public void onCreate() {
 
-      super.onCreate();
-
-
-
-    // Enable Local Datastore.
-    Parse.enableLocalDatastore(this);
+        super.onCreate();
 
 
-
-    // Add your initialization code here
-      Parse.initialize(new Parse.Configuration.Builder(this)
-                      .applicationId("8lZ2ZrKdmwr69jWPIK3ej9ox8t6K6pwmZYxXdMUP")
-                      .clientKey("1pbyJjobwoz1q15InykYUOvkwDAOzfwUIqRCgxW6")
-                      .server("https://parseapi.back4app.com").build());
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this);
 
 
-     //ParseUser.enableAutomaticUser();
-    ParseACL defaultACL = new ParseACL();
-    // Optionally enable public read access.
-   defaultACL.setPublicReadAccess(true);
-    ParseACL.setDefaultACL(defaultACL, true);
-  }
+        // Add your initialization code here
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId("8lZ2ZrKdmwr69jWPIK3ej9ox8t6K6pwmZYxXdMUP")
+                .clientKey("1pbyJjobwoz1q15InykYUOvkwDAOzfwUIqRCgxW6")
+                .server("https://parseapi.back4app.com").build());
+
+
+        //ParseUser.enableAutomaticUser();
+        ParseACL defaultACL = new ParseACL();
+        // Optionally enable public read access.
+        defaultACL.setPublicReadAccess(true);
+        ParseACL.setDefaultACL(defaultACL, true);
+    }
 }

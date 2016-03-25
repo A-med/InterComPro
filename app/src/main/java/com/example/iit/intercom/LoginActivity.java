@@ -1,11 +1,10 @@
 package com.example.iit.intercom;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,27 +13,30 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.ParseUser;
 
-import butterknife.ButterKnife;
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-    private static final int REQUEST_SIGNUP = 0;
 
-    @Bind(R.id.input_ref) EditText _refText;
-    @Bind(R.id.input_pass) EditText _passText;
-    @Bind(R.id.btn_login) Button _loginButton;
-    ProgressDialog progressDialog ;
 
-    
+    @Bind(R.id.input_ref)
+    EditText _refText;
+    @Bind(R.id.input_pass)
+    EditText _passText;
+    @Bind(R.id.btn_login)
+    Button _loginButton;
+    ProgressDialog progressDialog;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-            setContentView(R.layout.activity_login);
-            ButterKnife.bind(this);
-        
+        setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
+
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -66,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else if (user == null) {
                     Toast.makeText(LoginActivity.this, "Referance or Password invalide", Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                 }
 
 
@@ -92,32 +95,17 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Execute...");
         progressDialog.show();
 
+        String ref = _refText.getText().toString();
+        String pass = _passText.getText().toString();
+
+        try {
+            onLoginSuccess(ref, pass);
+        } catch (com.parse.ParseException e) {
+            e.printStackTrace();
+        }
 
 
-        // TODO: Implement your own authentication logic here.
-
-      /*  new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {*/
-                        String ref = _refText.getText().toString();
-                        String pass = _passText.getText().toString();
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        try {
-                            onLoginSuccess(ref,pass);
-                        } catch (com.parse.ParseException e) {
-                            e.printStackTrace();
-                        }
-                        // onLoginFailed();
-
-                    }
-
-
-
-
-
-
-
-
+    }
 
 
     public void onLoginFailed() {
@@ -132,14 +120,14 @@ public class LoginActivity extends AppCompatActivity {
         String ref = _refText.getText().toString();
         String pass = _passText.getText().toString();
 
-        if (ref.isEmpty() ) {
+        if (ref.isEmpty()) {
             _refText.setError("Invalid Referance");
             valid = false;
         } else {
             _refText.setError(null);
         }
 
-        if (pass.isEmpty() ) {
+        if (pass.isEmpty()) {
             _passText.setError("Invalide Password");
             valid = false;
         } else {

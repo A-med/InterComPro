@@ -10,16 +10,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.parse.ParseUser;
-//just a branch test for GitHub
+
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Menu mMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -57,8 +58,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-    private Menu mMenu;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,12 +102,6 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.turnOnCamera_Clicked:
 
-             /*   MenuItem item2 = mMenu.findItem(R.id.history_Clicked);
-                eventCameraOnClicked();
-
-                if(mMenu!=null){
-                item2.setVisible(false);
-                }*/
                 eventCameraOnClicked();
                 break;
             case R.id.turnOffCamera_Clicked:
@@ -149,14 +142,8 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-
-
-
-
     private void eventCameraOnClicked() {
         Toast.makeText(MainActivity.this, "Camera on Clicked", Toast.LENGTH_SHORT).show();
-
 
 
     }
