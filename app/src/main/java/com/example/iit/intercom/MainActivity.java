@@ -78,10 +78,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout_btn) {
+
             ParseUser.logOutInBackground();
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-
-
             startActivity(intent);
             finish();
 
